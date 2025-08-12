@@ -1,10 +1,10 @@
 import requests
-import tkinter as tk
+from app import App
 cityName = "Los Angeles"
 apiKey = "0c9ddd24c12ae2e9e8a03d419b946243"
 weatherData = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={cityName}&appid={apiKey}&units=metric")
 
 if weatherData.status_code == 200:
-    print(weatherData.json())
+    data = weatherData.json()
     # Pulling data from weatherData
-    temp = weatherData["main"]["temp"]
+    temp = data["main"]["temp"]
