@@ -14,7 +14,7 @@ class App(tk.Tk):
         self.textBox.pack(pady=20)
         self.textBox.bind("<Return>",self.setTemp)
 
-    def setTemp(self):
+    def setTemp(self,event):
         self.temp = self.textBox.get()
     def getTemp(self):
         return self.temp
