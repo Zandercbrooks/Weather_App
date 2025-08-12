@@ -1,26 +1,40 @@
 import tkinter as tk
+import requests
+
+class WeatherAPI:
+    def __init__(self, api_key):
+        self.api_key = api_key
+    def get_weather(self, city):
+        response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={cityName}&appid={apiKey}&units=metric")
+        return response.json() if response.status_code == 200 else None
+
+
 class App(tk.Tk):
-    def __init__(self, on_enter=None):
+    def __init__(self, weather_api):
         super().__init__()
-        self.city = None
-        self.on_enter = on_enter
+        weather_api = weather_api
+        
         self.title("Weather App")
 
         # GUI setup
-        self.canvas = tk.Canvas(self, bg="white", width=500,height=600)
-        self.canvas.pack()
+        
         # Text Entry
         self.textBox = tk.Entry(self,font=("Comic Sans", 20))
         self.textBox.pack(pady=20)
-        self.textBox.bind("<Return>",self.setCity)
+        # Search Button
+        self.button = tk.Button(self, text="Search", command=self.setCity)
+        self.button.pack(pady=10)
+        
 
-    def setCity(self,event):
-        self.city = self.textBox.get()
-        if self.on_enter:
-            self.on_enter()
+    def search_weather(self):
+        self.city = self.city_entry.get()
+        data = self.weather_api.get_weather(self.city)
 
-    def getCity(self):
-        return self.city
+        if data:
+            temp = data["main"]["temp"]
+        else:
+            
+        
 
         
 if __name__ == "__main__":
