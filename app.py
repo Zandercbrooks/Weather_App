@@ -5,10 +5,10 @@ class App(tk.Frame):
         super().__init__(master)
         self.pack()
         # GUI setup
-        canvas = tk.Canvas(root, bg="white", width=500,height=600)
+        canvas = tk.Canvas(self, bg="white", width=500,height=600)
         canvas.pack()
         # Text Entry
-        textBox = tk.Entry(root,font=("Comic Sans", 20))
+        textBox = tk.Entry(self,font=("Comic Sans", 20))
         textBox.pack(pady=20)
 
 
