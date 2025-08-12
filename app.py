@@ -15,7 +15,7 @@ class App(tk.Tk):
         self.textBox.bind("<Return>",self.setCity)
 
     def setCity(self,event):
-        self.City = self.textBox.get()
+        self.city = self.textBox.get()
     def getCity(self):
         return self.city
 
