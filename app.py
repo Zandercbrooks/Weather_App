@@ -3,7 +3,7 @@ import tkinter as tk
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.temp = None
+        self.city = None
         self.title("Weather App")
 
         # GUI setup
@@ -12,12 +12,12 @@ class App(tk.Tk):
         # Text Entry
         self.textBox = tk.Entry(self,font=("Comic Sans", 20))
         self.textBox.pack(pady=20)
-        self.textBox.bind("<Return>",self.setTemp)
+        self.textBox.bind("<Return>",self.setCity)
 
-    def setTemp(self,event):
-        self.temp = self.textBox.get()
-    def getTemp(self):
-        return self.temp
+    def setCity(self,event):
+        self.setCity = self.textBox.get()
+    def getCity(self):
+        return self.city
 
         
 if __name__ == "__main__":
