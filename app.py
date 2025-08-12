@@ -1,9 +1,9 @@
 import tkinter as tk
-
 class App(tk.Tk):
-    def __init__(self):
+    def __init__(self, on_enter=None):
         super().__init__()
         self.city = None
+        self.on_enter = on_enter
         self.title("Weather App")
 
         # GUI setup
@@ -16,6 +16,9 @@ class App(tk.Tk):
 
     def setCity(self,event):
         self.city = self.textBox.get()
+        if self.on_enter:
+            self.on_enter()
+
     def getCity(self):
         return self.city
 

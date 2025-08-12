@@ -1,9 +1,7 @@
 import requests
 from app import App
 
-# run app
-app = App()
-app.mainloop()
+
 
 
 
@@ -20,4 +18,6 @@ def getWeather():
     else:
         print("City not found")
 
-
+# run app
+app = App(on_enter=getWeather)
+app.mainloop()
