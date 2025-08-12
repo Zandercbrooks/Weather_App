@@ -3,6 +3,7 @@ import tkinter as tk
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
+        self.temp = None
         self.title("Weather App")
 
         # GUI setup
@@ -11,6 +12,13 @@ class App(tk.Tk):
         # Text Entry
         self.textBox = tk.Entry(self,font=("Comic Sans", 20))
         self.textBox.pack(pady=20)
+        self.textBox.bind("<Return>",self.setTemp)
+
+    def setTemp(self):
+        self.temp = self.textBox.get()
+    def getTemp(self):
+        return self.temp
+
         
 if __name__ == "__main__":
     app = App()
